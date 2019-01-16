@@ -40,8 +40,6 @@ def getUrlList():
     return urls
 
 
-test = 'http://dom.mingkh.ru/moskva/moskva/190242'
-
 def executeQuery(query):
     conn = psycopg2.connect("dbname='msk_estate' user='postgres' host='localhost' password='admin'")
     cur = conn.cursor()
@@ -113,7 +111,7 @@ def getHouseDescription(link):
 
 
 def main():
-    #executeQuery("TRUNCATE TABLE public.buildings;")
+    executeQuery("TRUNCATE TABLE public.buildings;")
     cnt = 0
     wrong_data = []
     for item in getUrlList():
